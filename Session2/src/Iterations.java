@@ -52,6 +52,9 @@ public class Iterations {
 		for(int j=1;j<=10;j++){
 			System.out.println(num+" "+j+"'s are "+(num*j));
 		}
+		
+		int myNum = 8;
+		// Write Your Logic -> 1 0 0 0 as output
 	}
 
 }
