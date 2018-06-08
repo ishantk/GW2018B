@@ -55,8 +55,7 @@ public class Arrays {
 		for(int i=0;i<a3.length;i++){
 			System.out.print(a3[i]+"  ");
 		}
-		
-		
+
 	}
 	
 
