@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.auribises.db.JDBCHelper;
+import com.auribises.model.Customer;
+
 
 public class AddCustomerGUI implements ActionListener{
 	
@@ -100,6 +103,30 @@ public class AddCustomerGUI implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnAddCustomer){
 			
+			Customer cRef = new Customer();
+			cRef.name = txtName.getText();
+			cRef.phone = txtPhone.getText();
+			cRef.email = txtEmail.getText();
+			cRef.age = Integer.parseInt(txtAge.getText());
+			
+			// Lest insert Customer data into DB
+			JDBCHelper helper = new JDBCHelper();
+			
+			helper.createConnection();
+			
+			int i = helper.addCustomer(cRef);
+			
+			if(i>0){
+				lblTitle.setText(cRef.name+" Added !!");
+				txtName.setText("");
+				txtPhone.setText("");
+				txtEmail.setText("");
+				txtAge.setText("");
+			}else{
+				lblTitle.setText("Some Problem !!");
+			}
+			
+			helper.closeConnection();
 		}else{
 			fr.dispose();
 		}
