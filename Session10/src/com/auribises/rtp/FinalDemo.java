@@ -1,5 +1,7 @@
 package com.auribises.rtp;
 
+import java.util.Scanner;
+
 // final class cannot be extended
 final class Parent{
 	// final method cannot be overridden
@@ -30,8 +32,7 @@ public class FinalDemo {
 		final int k;
 		k = 10;
 		
-		//k = 100; error
-		
+		//k = 100; error		
 	}
 
 }

@@ -85,6 +85,7 @@ public class RTPDemo {
 		
 		
 		// Parent's Ref Var can point to the object of Child
+		// Ref Variable of Interface can point to the Object which implements it
 		Cab cRef;
 		cRef = new MicroCab(); // Polymorphic Statement
 		cRef.bookCab();

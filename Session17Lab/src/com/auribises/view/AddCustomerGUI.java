@@ -3,6 +3,7 @@ package com.auribises.view;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -103,7 +104,7 @@ public class AddCustomerGUI implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnAddCustomer){
 			
-			Customer cRef = new Customer();
+			/*Customer cRef = new Customer();
 			cRef.name = txtName.getText();
 			cRef.phone = txtPhone.getText();
 			cRef.email = txtEmail.getText();
@@ -126,7 +127,19 @@ public class AddCustomerGUI implements ActionListener{
 				lblTitle.setText("Some Problem !!");
 			}
 			
+			helper.closeConnection();*/
+			
+			JDBCHelper helper = new JDBCHelper();
+			helper.createConnection();
+			ArrayList<Customer> list = helper.queryCustomers();
 			helper.closeConnection();
+			
+			for(Customer cRef : list){
+				System.out.println(cRef);
+				System.out.println("--------------------------");
+			}
+			
+			
 		}else{
 			fr.dispose();
 		}
